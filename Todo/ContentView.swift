@@ -67,7 +67,7 @@ struct ContentView: View {
     }
     
     //CHANGE THE WHERE TO MAKE IT PART OF YOUR DATA ARRAY
-    //DELETE DATA RE RUNS THE ON APPEAR FUNCTION THAT SHOWS THE DATA SUCCESSFULLY RUNNING
+    //MUTATE DATA RE RUNS THE ON APPEAR FUNCTION THAT SHOWS THE DATA SUCCESSFULLY RUNNING
     func mutateData() {
         Amplify.DataStore.query(Todo.self,
                                 where: Todo.keys.name.eq("See Friends")) { result in
@@ -93,9 +93,10 @@ struct ContentView: View {
     }
 
     //CHANGE THE WHERE TO MAKE IT PART OF YOUR DATA ARRAY
+    //DELETE DATA RE RUNS THE ON APPEAR FUNCTION THAT SHOWS THE DATA SUCCESSFULLY RUNNING
     func deleteData() {
         Amplify.DataStore.query(Todo.self,
-                                where: Todo.keys.name.eq("Sleep")) { result in
+                                where: Todo.keys.name.eq("I got it")) { result in
             switch(result) {
             case .success(let todos):
                 guard todos.count == 1, let toDeleteTodo = todos.first else {
